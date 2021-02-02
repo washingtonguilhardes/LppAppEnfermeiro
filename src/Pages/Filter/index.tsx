@@ -40,7 +40,10 @@ export const Filter = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    navigator.navigate(TREATMENT_SUGGESTION_PAGE_INDEX);
+    navigator.navigate(TREATMENT_SUGGESTION_PAGE_INDEX, {
+      title: 'Tratamento X',
+      suggestionId: '',
+    });
   };
 
   return (

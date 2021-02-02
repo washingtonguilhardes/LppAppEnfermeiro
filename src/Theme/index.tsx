@@ -1,8 +1,14 @@
 const Theme = {
   primary: {
-    main: '#009688',
-    light: '#D1E5E3',
     text: '#fff',
+    main: '#009688',
+    light: '#48a999',
+    dark: '#004c40',
+  },
+  secondary: {
+    main: '#900000',
+    light: '#c8412a',
+    dark: '#5d0000',
   },
   accent: {
     main: '#900',

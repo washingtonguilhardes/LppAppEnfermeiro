@@ -34,7 +34,11 @@ const App = () => {
           />
           <Stack.Screen
             name={TREATMENT_SUGGESTION_PAGE_INDEX}
-            options={{ title: TREATMENT_SUGGESTION_PAGE_NAME }}
+            options={({ route }: any) => ({
+              title: (
+                route.params.title ?? TREATMENT_SUGGESTION_PAGE_NAME
+              ).toUpperCase(),
+            })}
             component={TreatmentSuggestion}
           />
         </Stack.Navigator>
