@@ -1,8 +1,14 @@
 import React, { useMemo, useState } from 'react';
-import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Image, Text, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
+import { useNavigation } from '@react-navigation/native';
+
+import { TS_DESCRIPTION_PAGE_INDEX } from '@src/Pages/TreatmentSuggestionDetails';
+
 import Theme from '@src/Theme';
+
+import styles from './SuggestionDescriptionCard.styles';
 
 interface Props {
   image: string;
@@ -12,11 +18,15 @@ const SuggestionDescriptionCard = (props: Props) => {
   const { image } = props;
   const [loaging, setLoading] = useState(false);
   const img = useMemo(() => `${image}?a=${Math.random()}`, [image]);
+  const { navigate } = useNavigation();
+
   return (
     <TouchableWithoutFeedback
       style={styles.root}
       onPress={() => {
-        setLoading(!loaging);
+        setLoading(true);
+        setTimeout(() => setLoading(false), 3000);
+        setTimeout(() => navigate(TS_DESCRIPTION_PAGE_INDEX), 3200);
       }}>
       <>
         <View>
@@ -42,33 +52,3 @@ const SuggestionDescriptionCard = (props: Props) => {
 };
 
 export default SuggestionDescriptionCard;
-
-const styles = StyleSheet.create({
-  root: {
-    flexDirection: 'row',
-    marginBottom: 16,
-    backgroundColor: Theme.primary.light,
-    borderRadius: 7,
-    elevation: 3,
-  },
-  descriptionContainer: {
-    flex: 1,
-    padding: 8,
-  },
-  title: {
-    fontSize: 18,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    resizeMode: 'stretch',
-    flex: 1,
-    borderTopLeftRadius: 3,
-    borderBottomLeftRadius: 3,
-  },
-  loaderIndicator: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 4,
-  },
-});

@@ -2,7 +2,8 @@ const Theme = {
   primary: {
     text: '#fff',
     main: '#009688',
-    light: '#48a999',
+    light: '#cceae7',
+    // light: 'rgba(255,255,255,1)',
     dark: '#004c40',
   },
   secondary: {

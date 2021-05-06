@@ -72,7 +72,7 @@ const InputSelectorButton = (props: Props) => {
         <Picker.Item color={Theme.primary.main} label={placeholder} value={0} />
         {Object.entries(options).map(([key, item]) => (
           <Picker.Item
-            color={Theme.primary.main}
+            color={Theme.primary.dark}
             label={item.label}
             value={item.value}
             key={key}

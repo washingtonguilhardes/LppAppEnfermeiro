@@ -8,6 +8,10 @@ import TreatmentSuggestion, {
   TREATMENT_SUGGESTION_PAGE_INDEX,
   TREATMENT_SUGGESTION_PAGE_NAME,
 } from '@src/Pages/TreatmentSuggestion';
+import TreatmentSuggestionDetails, {
+  TS_DESCRIPTION_PAGE_INDEX,
+  TS_DESCRIPTION_PAGE_NAME,
+} from '@src/Pages/TreatmentSuggestionDetails';
 
 import Shared from '@src/Store/Shared';
 
@@ -40,6 +44,15 @@ const App = () => {
               ).toUpperCase(),
             })}
             component={TreatmentSuggestion}
+          />
+          <Stack.Screen
+            name={TS_DESCRIPTION_PAGE_INDEX}
+            options={({ route }: any) => ({
+              title: (
+                route.params?.title ?? TS_DESCRIPTION_PAGE_NAME
+              ).toUpperCase(),
+            })}
+            component={TreatmentSuggestionDetails}
           />
         </Stack.Navigator>
       </NavigationContainer>
